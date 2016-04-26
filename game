@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+
+require "fileutils"
+require_relative "turn"
+require_relative "instructions"
+
+IN_PATH = "./data/in.txt"
+OUT_PATH = "./data/out.txt"
+
+if ARGV[0] == "play"
+  play_turn(Turn.new(IN_PATH, OUT_PATH))
+elsif ARGV[0] == "reset"
+  FileUtils.cp(OUT_PATH, IN_PATH)
+  File.open(OUT_PATH, "w") { |f| f.puts "" }
+else
+  puts "unknown option: play or reset"
+end
