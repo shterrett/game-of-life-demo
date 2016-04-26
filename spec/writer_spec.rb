@@ -13,7 +13,7 @@ describe Writer do
                        [1, 0, 1],
                        [0, 0, 0]])
 
-    Writer.write("./spec/data/out.txt", board)
+    Writer.new("./spec/data/out.txt").write(board)
 
     expect(File.read("./spec/data/out.txt")).to(
       eq(

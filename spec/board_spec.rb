@@ -1,17 +1,18 @@
 require_relative "../board"
 
 describe Board do
-  it "iterates through a 2D array" do
-    board = Board.new([[1, 2, 3],
-                       [4, 5, 6],
-                       [7, 8, 9]])
+  it "iterates through a 2D array and returns the value and indicies" do
+    board = Board.new([[1, 2],
+                       [3, 4]])
 
     walk = []
     board.each do |cell|
       walk << cell
     end
 
-    expect(walk).to eq [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    expect(walk.map(&:value)).to eq [1, 2, 3, 4]
+    expect(walk.map(&:row)).to eq [0, 0, 1, 1]
+    expect(walk.map(&:column)).to eq [0, 1, 0, 1]
   end
 
   it "iterates over each row in the array" do

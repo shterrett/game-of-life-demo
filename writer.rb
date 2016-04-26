@@ -1,14 +1,9 @@
 class Writer
-  def self.write(path, board)
-    new(path, board).write
-  end
-
-  def initialize(path, board)
+  def initialize(path)
     @path = path
-    @board = board
   end
 
-  def write
+  def write(board)
     File.open(path, "w") do |f|
       board.each_row do |row|
         f.puts row.join(" ")
@@ -17,5 +12,5 @@ class Writer
   end
 
   private
-  attr_reader :board, :path
+  attr_reader :path
 end

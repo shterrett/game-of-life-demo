@@ -6,7 +6,7 @@ class Reader
   end
 
   def board
-    @board ||= Board.new(board_from_file)
+    Board.new(board_from_file)
   end
 
   private

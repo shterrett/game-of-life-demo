@@ -1,13 +1,16 @@
 class Board
   include Enumerable
+  CELL = Struct.new(:value, :row, :column)
 
   def initialize(two_d_array)
     @board = two_d_array
   end
 
   def each
-    @board.flatten.each do |cell|
-      yield cell
+    @board.each_with_index do |row, ri|
+      row.each_with_index do |cell, ci|
+        yield CELL.new(cell, ri, ci)
+      end
     end
   end
 
