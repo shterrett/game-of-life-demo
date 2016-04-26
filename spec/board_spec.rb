@@ -14,6 +14,19 @@ describe Board do
     expect(walk).to eq [1, 2, 3, 4, 5, 6, 7, 8, 9]
   end
 
+  it "iterates over each row in the array" do
+    board = Board.new([[1, 2, 3],
+                       [4, 5, 6],
+                       [7, 8, 9]])
+
+    rows = []
+    board.each_row do |row|
+      rows << row
+    end
+
+    expect(rows).to eq [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+  end
+
   it "provides access to a specific cell" do
     board = Board.new([[1, 2, 3],
                        [4, 5, 6],

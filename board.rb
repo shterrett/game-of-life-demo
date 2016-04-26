@@ -11,6 +11,12 @@ class Board
     end
   end
 
+  def each_row
+    @board.each do |row|
+      yield row
+    end
+  end
+
   def get(col, row)
     @board[row][col]
   end
